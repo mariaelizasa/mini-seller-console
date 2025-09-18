@@ -4,4 +4,3 @@ export type LeadStatus =
   | "qualified"
   | "notInterested"
   | "converted"
-  | "notInterested";

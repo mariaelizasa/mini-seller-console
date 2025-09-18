@@ -9,3 +9,5 @@ export interface Leads {
   score: number;
   status: LeadStatus;
 }
+
+ 
