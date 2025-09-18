@@ -1,5 +1,9 @@
 const LeadsPage = () => {
-  return <div>Leads Page</div>;
+  return (
+    <>
+      <div>Leads</div>
+    </>
+  );
 };
 
 export default LeadsPage;

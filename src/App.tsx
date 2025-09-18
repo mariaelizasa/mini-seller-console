@@ -1,9 +1,12 @@
-import AppRoutes from "./routes/routes";
+import Header from "./components/Header";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
-      <AppRoutes />
+      <Layout>
+        <Header />
+      </Layout>
     </>
   );
 }

@@ -1,10 +1,4 @@
-type LeadStatus =
-  | "new"
-  | "inContact"
-  | "qualified"
-  | "notInterested"
-  | "converted"
-  | "notInterested";
+import type { LeadStatus } from "./LeadStatus";
 
 export interface Leads {
   id: number;
