@@ -1,10 +1,13 @@
 import { useState } from "react";
 import LeadsPage from "../pages/LeadsPage";
 import OpportunitiesPage from "../pages/OpportunitiesPage";
+import { useOpportunities } from "../context/OpportunitiesContext";
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState<"leads" | "opportunities">("leads");
-
+  const [activeTab, setActiveTab] = useState<"leads" | "opportunities">(
+    "leads"
+  );
+  const { opportunities } = useOpportunities();
   const tabs = [
     { id: "leads", label: "Leads" },
     { id: "opportunities", label: "Opportunities" },
@@ -32,7 +35,11 @@ const Header = () => {
       </div>
 
       <div className="mt-6">
-        {activeTab === "leads" ? <LeadsPage /> : <OpportunitiesPage />}
+        {activeTab === "leads" ? (
+          <LeadsPage />
+        ) : (
+          <OpportunitiesPage opportunities={opportunities} />
+        )}
       </div>
     </>
   );

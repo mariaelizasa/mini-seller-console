@@ -28,7 +28,7 @@ const InputField = ({
       value={value}
       readOnly={readOnly}
       required={type === "email"}
-      onChange={(e) => onChange(e.target.value, e.target.checkValidity())}
+      onChange={(e) => onChange(e.target.value, e.target.checkValidity())} 
       className="border p-2 rounded invalid:border-red-500 valid:border-green-500"
     />
   </div>

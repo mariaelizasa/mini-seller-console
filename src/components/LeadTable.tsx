@@ -1,13 +1,10 @@
 import type { Lead } from "../@types/Leads";
+import { Th } from "../utils/TableHeader";
 
 type LeadTableProps = {
   leads: Lead[];
   setSelectedLead: (lead: Lead | null) => void;
 };
-
-const Th = ({ children }: { children: React.ReactNode }) => (
-  <th className="px-4 py-2 text-left text-[--color-main-purple]">{children}</th>
-);
 
 const LeadTable = ({ leads, setSelectedLead }: LeadTableProps) => {
   return (

@@ -35,7 +35,7 @@ export const LeadsProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <LeadsContext.Provider value={{ leads, loading, updateLead  }}>
+    <LeadsContext.Provider value={{ leads, loading, updateLead }}>
       {children}
     </LeadsContext.Provider>
   );
