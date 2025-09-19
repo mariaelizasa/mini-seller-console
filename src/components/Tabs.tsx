@@ -2,6 +2,7 @@ import { useState } from "react";
 import LeadsPage from "../pages/LeadsPage";
 import OpportunitiesPage from "../pages/OpportunitiesPage";
 import { useOpportunities } from "../context/OpportunitiesContext";
+import EmptyList from "./EmptyList";
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState<"leads" | "opportunities">(
@@ -37,6 +38,8 @@ const Header = () => {
       <div className="mt-6">
         {activeTab === "leads" ? (
           <LeadsPage />
+        ) : opportunities.length === 0 ? (
+          <EmptyList message="No opportunities found." />
         ) : (
           <OpportunitiesPage opportunities={opportunities} />
         )}
