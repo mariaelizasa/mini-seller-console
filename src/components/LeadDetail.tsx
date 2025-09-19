@@ -11,6 +11,7 @@ type LeadDetailProps = {
 
 const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
   const [isValid, setIsValid] = useState(false);
+  const [touched, setTouched] = useState(false);
 
   if (!selectedLead) return null;
   const { updateLead } = useLeads();
@@ -30,6 +31,7 @@ const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
           id="lead-email"
           label="Email:"
           value={selectedLead.email}
+          onBlur={() => setTouched(true)}
           onChange={(val, valid) => {
             setSelectedLead({ ...selectedLead, email: val });
             if (valid !== undefined) setIsValid(valid);
@@ -37,6 +39,11 @@ const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
           type="email"
         />
 
+        {touched && !isValid && (
+          <span className="text-red-500 text-sm">
+            O endereço de email não é válido!
+          </span>
+        )}
         <SelectField
           id="lead-status"
           label="Status:"

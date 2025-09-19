@@ -5,6 +5,7 @@ type InputFieldProps = {
   readOnly?: boolean;
   onChange: (val: string, valid?: boolean) => void;
   type?: string;
+  onBlur?: () => void;
 };
 
 const InputField = ({
@@ -13,6 +14,7 @@ const InputField = ({
   value,
   readOnly = false,
   onChange,
+  onBlur,
   type = "text",
 }: InputFieldProps) => (
   <div className="flex flex-col text-left">
@@ -22,6 +24,7 @@ const InputField = ({
     <input
       id={id}
       type={type}
+      onBlur={onBlur}
       value={value}
       readOnly={readOnly}
       required={type === "email"}
