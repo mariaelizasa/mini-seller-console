@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Lead } from "../@types/Leads";
 import { useLeads } from "../context/LeadContext";
 import InputField from "./InputField";
@@ -9,8 +10,9 @@ type LeadDetailProps = {
 };
 
 const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
-  if (!selectedLead) return null;
+  const [isValid, setIsValid] = useState(false);
 
+  if (!selectedLead) return null;
   const { updateLead } = useLeads();
 
   return (
@@ -20,12 +22,18 @@ const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
       </h2>
       <div className="h-px bg-gray-300 mb-6 w-full" />
 
-      <div className="flex flex-col gap-5 mb-6">
+      <div
+        className="flex flex-col gap-5 mb-6 invalid:border-red-500
+             valid:border-green-500"
+      >
         <InputField
           id="lead-email"
           label="Email:"
           value={selectedLead.email}
-          onChange={(val) => setSelectedLead({ ...selectedLead, email: val })}
+          onChange={(val, valid) => {
+            setSelectedLead({ ...selectedLead, email: val });
+            if (valid !== undefined) setIsValid(valid);
+          }}
           type="email"
         />
 
@@ -47,13 +55,20 @@ const LeadDetail = ({ selectedLead, setSelectedLead }: LeadDetailProps) => {
 
         <div className="flex gap-4 mt-2">
           <button
+            disabled={!isValid}
             onClick={() => {
               if (selectedLead) {
                 updateLead(selectedLead);
                 setSelectedLead(null);
               }
             }}
-            className="flex-1 px-4 py-2 rounded-full bg-pink-500 text-white hover:bg-purple-500 hover:border-purple-500 transition"
+            className={`flex-1 px-4 py-2 rounded-full transition
+              ${
+                isValid
+                  ? "bg-pink-500 text-white hover:bg-purple-500 hover:border-purple-500"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }
+            `}
           >
             Save
           </button>

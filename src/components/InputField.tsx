@@ -3,7 +3,7 @@ type InputFieldProps = {
   label: string;
   value: string;
   readOnly?: boolean;
-  onChange?: (value: string) => void;
+  onChange: (val: string, valid?: boolean) => void;
   type?: string;
 };
 
@@ -24,8 +24,9 @@ const InputField = ({
       type={type}
       value={value}
       readOnly={readOnly}
-      onChange={(e) => onChange && onChange(e.target.value)}
-      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-gray-800"
+      required={type === "email"}
+      onChange={(e) => onChange(e.target.value, e.target.checkValidity())}
+      className="border p-2 rounded invalid:border-red-500 valid:border-green-500"
     />
   </div>
 );
