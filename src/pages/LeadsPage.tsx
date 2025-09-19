@@ -1,12 +1,21 @@
+import { useState } from "react";
 import { useLeads } from "../context/LeadContext";
+import LeadDetail from "../components/LeadDetail";
+import LeadTable from "../components/LeadTable";
+import type { Lead } from "../@types/Leads";
 
 const LeadsPage = () => {
-  const { leads } = useLeads();
-  console.log("leads", leads)
-  
+  const { leads, loading } = useLeads();
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+
   return (
     <>
-      <div>Leads</div>
+      <LeadTable leads={leads} setSelectedLead={setSelectedLead}></LeadTable>
+
+      <LeadDetail
+        selectedLead={selectedLead}
+        setSelectedLead={setSelectedLead}
+      ></LeadDetail>
     </>
   );
 };

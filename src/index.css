@@ -2,4 +2,5 @@
 
 @theme {
   --font-sans: "Montserrat", sans-serif;
+  --color-main-purple: theme(colors.purple.900);
 }

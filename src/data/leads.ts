@@ -1,6 +1,6 @@
-import type { Leads } from "../@types/Leads";
+import type { Lead } from "../@types/Leads";
 
-export const leadsData: Leads[] =[
+export const leadsData: Lead[] =[
   {
     "id": 1,
     "name": "Christopher Harrington",

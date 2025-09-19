@@ -5,19 +5,27 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
-import type { Leads } from "../@types/Leads";
+
 import { fetchLeads } from "../services/LeadsService";
+import type { Lead } from "../@types/Leads";
 
 interface LeadsContextProps {
-  leads: Leads[] | [];
+  leads: Lead[] | [];
   loading: boolean;
+  updateLead: (lead: Lead) => void;
 }
 
 const LeadsContext = createContext<LeadsContextProps | undefined>(undefined);
 
 export const LeadsProvider = ({ children }: { children: ReactNode }) => {
-  const [leads, setLeads] = useState<Leads[]>([]);
+  const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const updateLead = (updatedLead: Lead) => {
+    setLeads((prevLeads) =>
+      prevLeads.map((lead) => (lead.id === updatedLead.id ? updatedLead : lead))
+    );
+  };
 
   useEffect(() => {
     fetchLeads().then((data) => {
@@ -27,7 +35,7 @@ export const LeadsProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <LeadsContext.Provider value={{ leads, loading }}>
+    <LeadsContext.Provider value={{ leads, loading, updateLead  }}>
       {children}
     </LeadsContext.Provider>
   );

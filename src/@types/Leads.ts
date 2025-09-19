@@ -1,6 +1,6 @@
 import type { LeadStatus } from "./LeadStatus";
 
-export interface Leads {
+export interface Lead {
   id: number;
   name: string;
   company: string;
