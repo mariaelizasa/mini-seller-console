@@ -1,69 +1,67 @@
-# React + TypeScript + Vite
+# Mini Seller Console 🌸
+<p>Lightweight console to triage Leads and convert them into Opportunities using React with Typescript + Tailwind.</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+<p align="center">
+ <img width="1349" height="865" alt="image" src="https://github.com/user-attachments/assets/ed1d285a-ab63-4224-a81d-c3c63eb2ca5a" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Como executar / How to Run
 
-## Expanding the ESLint configuration
+Instale as dependências / Install all the dependencies:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```sh
+npm install
+```
+Execute o frontend / Execute the frontend:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```sh
+npm run dev
+```
+## 📁 Estrutura do Projeto / Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── frontend 📁
+│   └── src 📁
+│       ├── @types 📁          
+│       │   ├── LeadDetail.ts 🌐
+│       │   ├── Leads.ts 🌐
+│       │   └── LeadStatus.ts 🌐
+│       │   └── Opportunities.ts 🌐
+│       ├── components 📁
+│       │   ├── EmptyList.tsx 🌐
+│       │   ├── Header.tsx 🌐
+│       │   ├── InputField.tsx 🌐
+│       │   ├── LeadDetail.tsx 🌐
+│       │   ├── LeadDetail.tsx 🌐
+│       │   ├── LeadTable.tsx 🌐
+│       │   ├── Loading.tsx 🌐
+│       │   └── SelectedField.tsx 🌐
+│       │   └── Tabs.tsx 🌐
+│       ├── pages 📁
+│       │   └── LeadsPage.tsx 🌐
+│       │   └── OpportunitiesPage.tsx 🌐
+│       ├── services 📁
+│       │   ├── LeadsService.ts 🌐       
+│       │   └── Transactions 📁
+│       ├── context 📁
+│       │   ├── LeadsContext.tsx 🌐
+│       │   └── OpportunitiesContext.tsx 🌐
+│       ├── utils 📁
+│       │   ├── TableHeader.tsx 🌐
+│       ├── data 📁
+│       │   ├── Leads.ts 🌐
+│       ├── App.tsx 🌐
+│       └── main.tsx 🌐
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌟 Contribuição / Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Fork it (`https://github.com/mariaelizasa/minisellerconsole.git`)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`
+5. Create a new Pull Request
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<p align="center">💡 Vamos construir juntos! / Let's build together! 💡</p> 
