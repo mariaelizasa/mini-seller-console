@@ -44,7 +44,6 @@ npm run dev
 │       │   └── OpportunitiesPage.tsx 🌐
 │       ├── services 📁
 │       │   ├── LeadsService.ts 🌐       
-│       │   └── Transactions 📁
 │       ├── context 📁
 │       │   ├── LeadsContext.tsx 🌐
 │       │   └── OpportunitiesContext.tsx 🌐
